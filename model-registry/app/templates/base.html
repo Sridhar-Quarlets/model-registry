@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{% block title %}Quarlets Model Registry{% endblock %}</title>
+    <link rel="stylesheet" href="/static/styles.css" />
+  </head>
+  <body>
+    <header>
+      <nav>
+        <a href="/ui/">Home</a>
+        <a href="/ui/models">Models</a>
+        <a href="/ui/models/new">Register Model</a>
+        <a href="/ui/login">Login</a>
+        <form action="/ui/logout" method="post" style="display:inline">
+          <button type="submit">Logout</button>
+        </form>
+      </nav>
+    </header>
+    <main>
+      {% block content %}{% endblock %}
+    </main>
+  </body>
+  </html>
+
+

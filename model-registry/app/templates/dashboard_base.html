@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{% block title %}Dashboard - Quarlets Model Registry{% endblock %}</title>
+    <link rel="stylesheet" href="/static/styles.css" />
+  </head>
+  <body class="dashboard-layout">
+    <aside class="sidebar">
+      <div class="sidebar-brand">Quarlets</div>
+      <nav>
+        <a href="/ui/dashboard" class="nav-item">Overview</a>
+        <a href="/ui/models" class="nav-item">Registered Models</a>
+        <a href="/ui/models/new" class="nav-item">Register Model</a>
+      </nav>
+    </aside>
+    <section class="content">
+      <header class="topbar">
+        <div class="spacer"></div>
+        <form action="/ui/logout" method="post">
+          <button type="submit">Logout</button>
+        </form>
+      </header>
+      <main>
+        {% block content %}{% endblock %}
+      </main>
+    </section>
+  </body>
+  </html>
+
+

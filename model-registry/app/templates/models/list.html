@@ -1,0 +1,39 @@
+{% extends "dashboard_base.html" %}
+{% block title %}Registered Models - Quarlets Model Registry{% endblock %}
+{% block content %}
+  <h2>Models</h2>
+  <p>Total: {{ total }}</p>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Display</th>
+        <th>Version</th>
+        <th>Type</th>
+        <th>Domain</th>
+        <th>Status</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for m in models %}
+      <tr>
+        <td>{{ m.model_name }}</td>
+        <td>{{ m.display_name }}</td>
+        <td>{{ m.version }}</td>
+        <td>{{ m.model_type }}</td>
+        <td>{{ m.domain }}</td>
+        <td>{{ m.status }}</td>
+        <td>
+          <a href="/ui/models/{{ m.model_id }}">View</a>
+          <form method="post" action="/ui/models/{{ m.model_id }}/delete" style="display:inline">
+            <button type="submit">Delete</button>
+          </form>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}
+
+

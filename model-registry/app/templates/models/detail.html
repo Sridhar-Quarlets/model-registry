@@ -1,0 +1,14 @@
+{% extends "dashboard_base.html" %}
+{% block title %}Model Detail - Quarlets Model Registry{% endblock %}
+{% block content %}
+  <h2>{{ model.display_name }} ({{ model.version }})</h2>
+  <p><strong>Type:</strong> {{ model.model_type }}</p>
+  <p><strong>Domain:</strong> {{ model.domain }}</p>
+  <p><strong>Status:</strong> {{ model.status }}</p>
+  <p><strong>Artifact:</strong> {{ model.artifact_path }} ({{ model.model_format }})</p>
+  <p><strong>Checksum:</strong> {{ model.checksum }}</p>
+  <p><strong>Created By:</strong> {{ model.created_by }} on {{ model.created_at }}</p>
+  <p><a href="/ui/models/{{ model.model_id }}/metrics">View Metrics</a></p>
+{% endblock %}
+
+

@@ -1,0 +1,44 @@
+{% extends "dashboard_base.html" %}
+{% block title %}Register Model - Quarlets Model Registry{% endblock %}
+{% block content %}
+  <h2>Register a New Model</h2>
+  {% if error %}<div class="error">{{ error }}</div>{% endif %}
+  <form method="post" action="/ui/models/new">
+    <label>Model Name</label>
+    <input name="model_name" required />
+
+    <label>Display Name</label>
+    <input name="display_name" required />
+
+    <label>Version</label>
+    <input name="version" required />
+
+    <label>Model Type</label>
+    <select name="model_type" required>
+      <option>Transformer</option>
+      <option>GNN</option>
+      <option>SLM</option>
+      <option>Regression</option>
+      <option>Ensemble</option>
+    </select>
+
+    <label>Domain</label>
+    <input name="domain" required />
+
+    <label>Artifact Path</label>
+    <input name="artifact_path" required />
+
+    <label>Model Format</label>
+    <input name="model_format" required />
+
+    <label>Checksum</label>
+    <input name="checksum" required />
+
+    <label>Tags</label>
+    <input name="tags" />
+
+    <button type="submit">Register</button>
+  </form>
+{% endblock %}
+
+

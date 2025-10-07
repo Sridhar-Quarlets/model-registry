@@ -1,0 +1,13 @@
+{% extends "dashboard_base.html" %}
+{% block title %}Model Metrics - Quarlets Model Registry{% endblock %}
+{% block content %}
+  <h2>Metrics for {{ model_id }}</h2>
+  <h3>Metrics</h3>
+  <pre>{{ metrics | tojson(indent=2) }}</pre>
+  <h3>Usage Stats</h3>
+  <pre>{{ usage_stats | tojson(indent=2) }}</pre>
+  <p><strong>Access Count:</strong> {{ access_count }}</p>
+  <p><strong>Last Accessed:</strong> {{ last_accessed }}</p>
+{% endblock %}
+
+

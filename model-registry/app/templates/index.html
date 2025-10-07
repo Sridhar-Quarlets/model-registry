@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Quarlets Model Registry</title>
+    <link rel="stylesheet" href="/static/styles.css" />
+  </head>
+  <body class="split-layout">
+    <section class="left-pane">
+      <div class="brand">
+        <img src="/static/logo.svg" alt="Quarlets" onerror="this.style.display='none'" />
+        <h1>Quarlets Model Registry</h1>
+        <p>Securely register, track, and govern your AI/ML models.</p>
+      </div>
+    </section>
+    <section class="right-pane">
+      <div class="auth-card">
+        <div class="tabs">
+          <a href="/ui/?view=login" class="tab {% if view == 'login' %}active{% endif %}">Login</a>
+          <a href="/ui/?view=register" class="tab {% if view == 'register' %}active{% endif %}">Register</a>
+        </div>
+        {% if error %}<div class="error">{{ error }}</div>{% endif %}
+        {% if view == 'register' %}
+          <form method="post" action="/ui/register" class="auth-form">
+            <label>Email</label>
+            <input type="email" name="email" required />
+            <label>Password</label>
+            <input type="password" name="password" required />
+            <button type="submit">Create Account</button>
+          </form>
+        {% else %}
+          <form method="post" action="/ui/login" class="auth-form">
+            <label>Email</label>
+            <input type="text" name="username" required />
+            <label>Password</label>
+            <input type="password" name="password" required />
+            <button type="submit">Login</button>
+          </form>
+        {% endif %}
+      </div>
+    </section>
+  </body>
+  </html>
+
+
